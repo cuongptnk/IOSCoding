@@ -6,14 +6,16 @@
 //
 
 import SwiftUI
-import DataLayer
+//import DataLayer
 
 struct ContentView: View {
+    let storiesProvider: StoriesProviderInterface
+    
     var body: some View {
         Text("Hello, world!")
             .padding().onAppear {
                 Task {
-                    await DataService.shared.fetchStories()
+                    await storiesProvider.fetchStories()
                 }
             }
     }
@@ -21,6 +23,6 @@ struct ContentView: View {
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView()
+        ContentView(storiesProvider: StoriesProvider(apiProvider: DataService.shared))
     }
 }

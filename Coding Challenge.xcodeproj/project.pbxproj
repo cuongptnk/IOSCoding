@@ -11,7 +11,8 @@
 		11A07314281AD12F0066BEA0 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11A07313281AD12F0066BEA0 /* ContentView.swift */; };
 		11A07316281AD1320066BEA0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 11A07315281AD1320066BEA0 /* Assets.xcassets */; };
 		11A07319281AD1320066BEA0 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 11A07318281AD1320066BEA0 /* Preview Assets.xcassets */; };
-		11E1D6432821AB4C001E8937 /* DataLayer in Frameworks */ = {isa = PBXBuildFile; productRef = 11E1D6422821AB4C001E8937 /* DataLayer */; };
+		2710831F2821AEEF00A02D93 /* DataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2710831E2821AEEF00A02D93 /* DataService.swift */; };
+		271083202821AEEF00A02D93 /* Story.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2710831D2821AEEF00A02D93 /* Story.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -20,7 +21,8 @@
 		11A07313281AD12F0066BEA0 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		11A07315281AD1320066BEA0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		11A07318281AD1320066BEA0 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
-		11E1D6402821A8ED001E8937 /* DataLayer */ = {isa = PBXFileReference; lastKnownFileType = text; path = DataLayer; sourceTree = SOURCE_ROOT; };
+		2710831D2821AEEF00A02D93 /* Story.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Story.swift; sourceTree = "<group>"; };
+		2710831E2821AEEF00A02D93 /* DataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataService.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -28,7 +30,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				11E1D6432821AB4C001E8937 /* DataLayer in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -55,10 +56,11 @@
 		11A07310281AD12F0066BEA0 /* Coding Challenge */ = {
 			isa = PBXGroup;
 			children = (
-				11E1D6402821A8ED001E8937 /* DataLayer */,
 				11A07311281AD12F0066BEA0 /* Coding_ChallengeApp.swift */,
 				11A07313281AD12F0066BEA0 /* ContentView.swift */,
 				11A07315281AD1320066BEA0 /* Assets.xcassets */,
+				2710831E2821AEEF00A02D93 /* DataService.swift */,
+				2710831D2821AEEF00A02D93 /* Story.swift */,
 				11A07317281AD1320066BEA0 /* Preview Content */,
 			);
 			path = "Coding Challenge";
@@ -96,7 +98,6 @@
 			);
 			name = "Coding Challenge";
 			packageProductDependencies = (
-				11E1D6422821AB4C001E8937 /* DataLayer */,
 			);
 			productName = "Coding Challenge";
 			productReference = 11A0730E281AD12F0066BEA0 /* Coding Challenge.app */;
@@ -152,8 +153,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2710831F2821AEEF00A02D93 /* DataService.swift in Sources */,
 				11A07314281AD12F0066BEA0 /* ContentView.swift in Sources */,
 				11A07312281AD12F0066BEA0 /* Coding_ChallengeApp.swift in Sources */,
+				271083202821AEEF00A02D93 /* Story.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -354,13 +357,6 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
-
-/* Begin XCSwiftPackageProductDependency section */
-		11E1D6422821AB4C001E8937 /* DataLayer */ = {
-			isa = XCSwiftPackageProductDependency;
-			productName = DataLayer;
-		};
-/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 11A07306281AD12F0066BEA0 /* Project object */;
 }

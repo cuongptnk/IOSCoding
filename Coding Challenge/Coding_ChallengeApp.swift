@@ -11,7 +11,7 @@ import SwiftUI
 struct Coding_ChallengeApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            ContentView(storiesProvider:  MockStoriesProvider(isSuccess: false))
         }
     }
 }

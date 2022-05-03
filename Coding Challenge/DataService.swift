@@ -7,17 +7,59 @@
 
 import Foundation
 
-public protocol APIProviderInterface {
+/// Providers (public)
+/// users, stories, login, paywall
+/// Internally these providers use the master Api Provider Interface
+///  Api provider is the class that actually talks to the backend
+///
+/// Put this in a new file
+///
+
+
+class MockStoriesProvider: StoriesProviderInterface {
+    private let isSuccess: Bool
+    
+    init(isSuccess: Bool) {
+        self.isSuccess = isSuccess
+    }
+    
+    
+    func fetchStories() async {
+        if isSuccess {
+            print("I have fetched stories")
+            
+            // return mock stories
+        } else {
+            print("i failed :(((((")
+            /// return generic error to assert againt
+        }
+    }
+}
+
+protocol StoriesProviderInterface {
     func fetchStories() async
+}
+
+public class StoriesProvider: StoriesProviderInterface {
+    
+    private let apiProvider: APIProviderInterface
+    
+    init(apiProvider: APIProviderInterface) {
+        self.apiProvider = apiProvider
+    }
+    
+    func fetchStories() async {
+        return await apiProvider.fetchStories()
+    }
+}
+
+protocol APIProviderInterface {
+    func fetchStories() async
+    func fetchUsers() async
 }
 
 public class DataService: APIProviderInterface {
     public static let shared = DataService()
-    
-    func getRequest(withURL url: URL) async throws -> DataWithPagination {
-        let (data, _) = try await URLSession.shared.data(from: url)
-        return try JSONDecoder().decode(DataWithPagination.self, from: data)
-    }
     
     public func fetchStories() async {
         var componentURL = URLComponents()
@@ -67,4 +109,19 @@ public class DataService: APIProviderInterface {
         
         
     }
+    
+    func fetchUsers() async {
+        /// no -op
+    }
+}
+
+
+extension DataService {
+    func getRequest(withURL url: URL) async throws -> DataWithPagination {
+        // chnage implementation in one place fro UrlSession to AlamoFire
+        let (data, _) = try await URLSession.shared.data(from: url)
+        return try JSONDecoder().decode(DataWithPagination.self, from: data)
+    }
+    
+    /// put,
 }
