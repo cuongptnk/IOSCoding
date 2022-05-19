@@ -16,18 +16,9 @@ public class DataService: APIProviderInterface {
     public static let shared = DataService()
     
     public func fetchStories() async {
-        var componentURL = URLComponents()
-        componentURL.scheme = "https"
-        componentURL.host = "www.wattpad.com"
-        componentURL.path = "/api/v3/stories"
-        componentURL.queryItems = [
-            URLQueryItem(name: "offset", value: "0"),
-            URLQueryItem(name: "limit", value: "10"),
-            URLQueryItem(name: "fields", value: "stories(id,title,cover,user)"),
-            URLQueryItem(name: "filter", value: "new")
-        ]
+        let url = Endpoint.getStoriesEndpoint().url
         
-        guard let dataURL = componentURL.url else {
+        guard let dataURL = url else {
             print("URL creation failed...")
             return
         }
