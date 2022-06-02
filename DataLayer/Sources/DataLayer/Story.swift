@@ -7,20 +7,20 @@
 
 import Foundation
 
-struct User: Codable {
-    var name: String
-    var avatar: URL
-    var fullname: String
+public struct User: Codable {
+    public var name: String
+    public var avatar: URL
+    public var fullname: String
 }
 
-struct Story: Codable {
-    var id: String
-    var title: String
-    var user: User
-    var cover: URL
+public struct Story: Codable {
+    public var id: String
+    public var title: String
+    public var user: User
+    public var cover: URL
 }
 
-struct DataWithPagination: Codable {
-    var stories: [Story]
-    var nextUrl: URL
+public struct DataWithPagination: Codable {
+    public var stories: [Story]
+    public var nextUrl: URL
 }
